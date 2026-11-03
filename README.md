@@ -1,4 +1,48 @@
-# Jdjdj100
+class Animal:
+    def __init__(self, name, age, color):
+        self.name = name
+        self.age = age
+        self.color = color
+
+    def make_sound(self):
+        pass
+
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Гав-гав!"
+
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Мяу!"
+
+
+class Cow(Animal):
+    def make_sound(self):
+        return "Мууу!"
+
+
+animals = []
+
+file = open("animals.txt", "r", encoding="utf-8")
+for line in file:
+    words = line.split()
+    if len(words) == 4:
+        t, name, age, color = words[0], words[1], int(words[2]), words[3]
+        if t == "Собака":
+            animals.append(Dog(name, age, color))
+        elif t == "Кошка":
+            animals.append(Cat(name, age, color))
+        elif t == "Корова":
+            animals.append(Cow(name, age, color))
+file.close()
+
+for a in animals:
+    print(a.name, a.color, a.age, a.make_sound())
+
+
+
 import math
 import tkinter as tk
 
